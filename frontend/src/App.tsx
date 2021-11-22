@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, GridItem } from "@chakra-ui/react"
+import { Grid, GridItem, useColorModeValue } from "@chakra-ui/react"
 import './App.css';
 import { Header } from './components/Header';
 import { ImageViewer } from './components/ImageViewer';
@@ -7,12 +7,16 @@ import { Sidebar } from './components/Sidebar';
 import { IOutlierData, THistory } from './types';
 import { socket } from './websocket';
 import { config } from './config';
+import { colors } from './colors';
 
 function App() {
-
+  // State
   const [curOutlier, setCurOutlier] = useState<IOutlierData | undefined>(undefined);
   const [history, setHistory] = useState<THistory>([]);
   const [isLive, setIsLive] = useState<boolean>(config.isLiveDefault);
+
+  // Colors
+  const bgCol = useColorModeValue(colors.secondary.light, colors.secondary.dark)
 
   if (isLive && history.length > 0 && history[0] !== curOutlier) {
     // show latest data if available
@@ -53,7 +57,7 @@ function App() {
       boxSizing='border-box'
       maxH={"100vh"}
       maxW={"100vw"}
-      bg={"gray.50"}
+      bg={bgCol}
       templateAreas={[
         `
          "header"

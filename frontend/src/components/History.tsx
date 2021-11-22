@@ -1,8 +1,9 @@
-import { Divider, Heading, HStack, IconButton, Switch, Table, Tbody, Td, Text, Tr, VStack } from "@chakra-ui/react";
+import { Divider, Heading, HStack, IconButton, Switch, Table, Tbody, Td, Text, Tr, useColorModeValue, VStack } from "@chakra-ui/react";
 import { IOutlierData, THistory } from "../types";
 import { NoDataAlert } from "./NoDataAlert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faChevronRight, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { colors } from "../colors";
 
 export interface IHistoryComp {
     history: THistory
@@ -12,6 +13,8 @@ export interface IHistoryComp {
 }
 
 export function History({ history, isLive, setIsLive, setCurOutlier }: IHistoryComp) {
+    const hoverCol = useColorModeValue(colors.hover.light, colors.hover.dark);
+
     let content;
     if (history.length === 0) content = <NoDataAlert />;
     else {
@@ -21,7 +24,7 @@ export function History({ history, isLive, setIsLive, setCurOutlier }: IHistoryC
                     <Tr
                         key={idx}
                         _hover={{
-                            backgroundColor: "var(--chakra-colors-gray-100)",
+                            backgroundColor: hoverCol,
                             borderLeftRadius: "100px"
                         }}
                     >
@@ -53,7 +56,7 @@ export function History({ history, isLive, setIsLive, setCurOutlier }: IHistoryC
             <Divider />
             <HStack w={"100%"} p={5} justifyContent={"space-between"}>
                 <Text textDecoration={"InactiveCaptionText"}>Show live data</Text>
-                <Switch defaultChecked={isLive} colorScheme={"green"} size={"md"} onChange={() => setIsLive(!isLive)} />
+                <Switch defaultChecked={isLive} colorScheme={"orange"} size={"md"} colo onChange={() => setIsLive(!isLive)} />
             </HStack>
             <VStack
                 disabled={isLive}

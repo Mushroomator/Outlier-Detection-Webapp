@@ -1,4 +1,5 @@
-import { GridItem, VStack } from "@chakra-ui/react"
+import { GridItem, useColorModeValue, VStack } from "@chakra-ui/react"
+import { colors } from "../colors"
 import { IOutlierData, THistory } from "../types"
 import { Details } from "./Details"
 import { History } from "./History"
@@ -12,6 +13,8 @@ export interface ISidebarComp {
 }
 
 export function Sidebar({ details, history, isLive, setIsLive, setCurOutlier }: ISidebarComp) {
+    const bgCol = useColorModeValue(colors.primary.light, colors.primary.dark);
+
     return (
         <GridItem
             gridArea={"sidebar"}
@@ -22,7 +25,7 @@ export function Sidebar({ details, history, isLive, setIsLive, setCurOutlier }: 
             justifyItems={"center"}
         >
             <VStack
-                bg={"white"}
+                bg={bgCol}
                 h={"100%"}
                 w={"100%"}
                 p={5}

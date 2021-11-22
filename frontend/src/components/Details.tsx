@@ -1,6 +1,7 @@
-import { Alert, AlertIcon, AlertTitle, Divider, Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import { Alert, AlertIcon, AlertTitle, Divider, Heading, HStack, Text, useColorModeValue, VStack } from "@chakra-ui/react";
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { colors } from "../colors";
 import { IOutlierData } from "../types";
 import { NoDataAlert } from "./NoDataAlert";
 
@@ -9,6 +10,8 @@ export interface IDetailsComp {
 }
 
 export function Details({ details }: IDetailsComp) {
+    const bgCol = useColorModeValue(colors.primary.light, colors.primary.dark);
+
     let content;
     if (!details) {
         content = <NoDataAlert/>
@@ -25,7 +28,7 @@ export function Details({ details }: IDetailsComp) {
                 textAlign="center"
                 borderRadius={15}
                 height="100px"
-                bg={"white"}
+                bg={bgCol}
             >
                 <AlertIcon boxSize="40px" mr={0} />
                 <AlertTitle mt={4} mb={1} fontSize="lg">
