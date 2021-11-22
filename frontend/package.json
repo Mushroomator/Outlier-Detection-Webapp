@@ -1,0 +1,53 @@
+{
+    "name": "outlier-detector-webapp",
+    "version": "0.1.0",
+    "private": true,
+    "proxy": "http://localhost:5000",
+    "dependencies": {
+        "@chakra-ui/react": "^1.7.1",
+        "@emotion/react": "^11.6.0",
+        "@emotion/styled": "^11.6.0",
+        "@fontsource/roboto": "^4.5.1",
+        "@fortawesome/fontawesome-svg-core": "^1.2.36",
+        "@fortawesome/free-solid-svg-icons": "^5.15.4",
+        "@fortawesome/react-fontawesome": "^0.1.16",
+        "@testing-library/jest-dom": "^5.15.0",
+        "@testing-library/react": "^11.2.7",
+        "@testing-library/user-event": "^12.8.3",
+        "@types/jest": "^26.0.24",
+        "@types/node": "^12.20.37",
+        "@types/react": "^17.0.34",
+        "@types/react-dom": "^17.0.11",
+        "framer-motion": "^4.1.17",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scripts": "4.0.3",
+        "socket.io-client": "^4.3.2",
+        "typescript": "^4.4.4",
+        "web-vitals": "^1.1.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
