@@ -93,7 +93,7 @@ function App() {
         gridTemplateRows={["50vh, 50vh", `calc(100vh - ${headerHeight})`]}
         gridTemplateColumns={["1fr", "1fr 1fr"]}
       >
-        <ImageViewer heading="Original image" image={curOutlier?.images?.reconstructed} gridArea="original-image" />
+        <ImageViewer heading="Original image" image={curOutlier?.images?.original} gridArea="original-image" />
         <ImageViewer heading="Reconstructed image" image={curOutlier?.images?.reconstructed} gridArea="reconstructed-image" />
       </GridItem>
       <Sidebar details={curOutlier} history={history} isLive={isLive} setIsLive={setIsLive} setCurOutlier={setCurOutlier} />
